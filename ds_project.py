@@ -9,9 +9,9 @@ from sklearn.metrics import mean_squared_error, r2_score
 import time
 
 #import the data
-data = pd.read_csv("gaikindo.csv")
+data = pd.read_csv("DataClean.csv")
 image = Image.open("house.png")
-st.title("Selamat Datang di Aplikasi cekhargarumah")
+st.title("Selamat Datang di Aplikasi cekhargamobil")
 st.image(image, use_column_width=True)
 
 #checking the data
@@ -23,10 +23,10 @@ if check_data:
 st.write("Mari kita lihat berapa harga mobilnya.")
 
 #input the numbers
-CC = st.slider("Berapa kapasitas mesin yang anda cari?",int(data.CC.min()),int(data.CC.max()),int(data.CC.mean()) )
-SEATER     = st.slider("Berapa banyak tempat duduk dibutuhkan?",int(data.SEATER.min()),int(data.SEATER.max()),int(data.SEATER.mean()) )
-DOOR      = st.slider("Berapa banyak jumlah pintu yang dibutuhkan?",int(data.DOOR.min()),int(data.DOOR.max()),int(data.DOOR.mean()) )
-HP    = st.slider("berapa tenaga mesin yang anda inginkan?",int(data.HP.min()),int(data.HP.max()),int(data.HP.mean()) )
+sqft_living = st.slider("Berapa kapasitas mesin yang anda cari?",int(data.sqft_living.min()),int(data.sqft_living.max()),int(data.sqft_living.mean()) )
+bathrooms     = st.slider("Berapa banyak tempat duduk dibutuhkan?",int(data.bathrooms.min()),int(data.bathrooms.max()),int(data.bathrooms.mean()) )
+bedrooms      = st.slider("Berapa banyak jumlah pintu yang dibutuhkan?",int(data.bedrooms.min()),int(data.bedrooms.max()),int(data.bedrooms.mean()) )
+floors    = st.slider("berapa tenaga mesin yang anda inginkan?",int(data.floors.min()),int(data.floors.max()),int(data.floors.mean()) )
 
 #splitting your data
 X = data.drop('BRAND', axis = 1)
@@ -40,7 +40,7 @@ model=LinearRegression()
 model.fit(X_train, y_train)
 model.predict(X_test)
 errors = np.sqrt(mean_squared_error(y_test,model.predict(X_test)))
-predictions = model.predict([[CC,SEATER,DOOR,HP]])[0]
+predictions = model.predict([[sqft_living,bathrooms,bedrooms,floors]])[0]
 
 #checking prediction house price
 if st.button("Cek Harga Mobil?"):
