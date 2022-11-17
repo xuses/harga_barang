@@ -23,7 +23,7 @@ if check_data:
 st.write("Mari kita lihat berapa harga mobilnya.")
 
 #input the numbers
-cc = st.slider("Berapa kapasitas mesin yang anda cari?",int(data.CC.min()),int(data.CC.max()),int(data.CC.mean()) )
+#cc = st.slider("Berapa kapasitas mesin yang anda cari?",int(data.CC.min()),int(data.CC.max()),int(data.CC.mean()) )
 seat     = st.slider("Berapa banyak tempat duduk dibutuhkan?",int(data.SEATER.min()),int(data.SEATER.max()),int(data.SEATER.mean()) )
 door      = st.slider("Berapa banyak jumlah pintu yang dibutuhkan?",int(data.DOOR.min()),int(data.DOOR.max()),int(data.DOOR.mean()) )
 ps    = st.slider("berapa tenaga mesin yang anda inginkan?",int(data.HP.min()),int(data.HP.max()),int(data.HP.mean()) )
