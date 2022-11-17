@@ -9,7 +9,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 import time
 
 #import the data
-data = pd.read_csv("gaikindo.csv")
+data = pd.read_csv("gaikindo2.csv")
 image = Image.open("house.png")
 st.title("Selamat Datang di Aplikasi cekhargamobil")
 st.image(image, use_column_width=True)
