@@ -26,7 +26,7 @@ st.write("Mari kita lihat berapa harga mobilnya.")
 CC = st.slider("Berapa kapasitas mesin yang anda cari?",int(data.CC.min()),int(data.CC.max()),int(data.CC.mean()) )
 SEATER     = st.slider("Berapa banyak tempat duduk dibutuhkan?",int(data.SEATER.min()),int(data.SEATER.max()),int(data.SEATER.mean()) )
 DOOR      = st.slider("Berapa banyak jumlah pintu yang dibutuhkan?",int(data.DOOR.min()),int(data.DOOR.max()),int(data.DOOR.mean()) )
-PS/HP    = st.slider("berapa tenaga mesin yang anda inginkan?",int(data.PS/HP.min()),int(data.PS/HP.max()),int(data.PS/HP.mean()) )
+HP    = st.slider("berapa tenaga mesin yang anda inginkan?",int(data.HP.min()),int(data.HP.max()),int(data.HP.mean()) )
 
 #splitting your data
 X = data.drop('BRAND', axis = 1)
@@ -40,7 +40,7 @@ model=LinearRegression()
 model.fit(X_train, y_train)
 model.predict(X_test)
 errors = np.sqrt(mean_squared_error(y_test,model.predict(X_test)))
-predictions = model.predict([[CC,SEATER,DOOR,PS/HP]])[0]
+predictions = model.predict([[CC,SEATER,DOOR,HP]])[0]
 
 #checking prediction house price
 if st.button("Cek Harga Mobil?"):
