@@ -23,14 +23,14 @@ if check_data:
 st.write("Mari kita lihat berapa harga mobilnya.")
 
 #input the numbers
-sqft_liv = st.slider("Berapa kapasitas mesin yang anda cari?",int(data.sqft_living.min()),int(data.sqft_living.max()),int(data.sqft_living.mean()) )
-bath     = st.slider("Berapa banyak tempat duduk dibutuhkan?",int(data.bathrooms.min()),int(data.bathrooms.max()),int(data.bathrooms.mean()) )
-bed      = st.slider("Berapa banyak jumlah pintu yang dibutuhkan?",int(data.bedrooms.min()),int(data.bedrooms.max()),int(data.bedrooms.mean()) )
-floor    = st.slider("berapa tenaga mesin yang anda inginkan?",int(data.floors.min()),int(data.floors.max()),int(data.floors.mean()) )
+sqft_liv = st.slider("Berapa kapasitas mesin yang anda cari?",int(data.CC.min()),int(data.CC.max()),int(data.CC.mean()) )
+bath     = st.slider("Berapa banyak tempat duduk dibutuhkan?",int(data.SEATER.min()),int(data.SEATER.max()),int(data.SEATER.mean()) )
+bed      = st.slider("Berapa banyak jumlah pintu yang dibutuhkan?",int(data.DOOR.min()),int(data.DOOR.max()),int(data.DOOR.mean()) )
+floor    = st.slider("berapa tenaga mesin yang anda inginkan?",int(data.PS/HP.min()),int(data.PS/HP.max()),int(data.PS/HP.mean()) )
 
 #splitting your data
-X = data.drop('price', axis = 1)
-y = data['price']
+X = data.drop('BRAND', axis = 1)
+y = data['BRAND']
 X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=.2, random_state=45)
 
 #modelling step
