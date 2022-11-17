@@ -29,8 +29,8 @@ door      = st.slider("Berapa banyak jumlah pintu yang dibutuhkan?",int(data.DOO
 ps    = st.slider("berapa tenaga mesin yang anda inginkan?",int(data.HP.min()),int(data.HP.max()),int(data.HP.mean()) )
 
 #splitting your data
-X = data.drop('BRAND', axis = 1)
-y = data['BRAND']
+X = data.drop('price', axis = 1)
+y = data['price']
 X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=.2, random_state=45)
 
 #modelling step
